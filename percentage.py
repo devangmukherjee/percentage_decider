@@ -70,7 +70,7 @@ neg_triggered=0
 if(points<0):
     neg_triggered=1
     for i in range(int(len(data))):
-        price=data.iloc[i]['open']-points
+        price=data.iloc[i]['open']+points
         if(data.iloc[i]['close']<=price):
             closed_below_points+=1
         if(data.iloc[i]['close']>price and data.iloc[i]['close']<=data.iloc[i]['open']):
