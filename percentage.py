@@ -8,13 +8,16 @@ Created on Tue Jun  9 00:23:32 2020
 
 from alpha_vantage.timeseries import TimeSeries
 import matplotlib.pyplot as plt
+import argparse
 
+parser = argparse.ArgumentParser()
+parser.add_argument("key", help='paste your api key inside here')
+args = parser.parse_args()
 ##################
 # Your key here
-key = 'paste your api key inside here'
+api_key = args.key
 ##################
-
-ts = TimeSeries(key, output_format='pandas')
+ts = TimeSeries(api_key, output_format='pandas')
 stock_name = input("Enter correct stock name: ") 
 data, meta_data = ts.get_daily(symbol='NSE:'+stock_name,outputsize='full')
 
